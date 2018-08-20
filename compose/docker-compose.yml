@@ -1,0 +1,36 @@
+version: '2'
+services:
+  db:
+    image: mariadb:latest
+    volumes:
+      - "./data/db:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 1234
+
+  nginx:
+    image: nginx:alpine
+    links:
+      - fpm:fpm
+    ports:
+      - 80:80
+    volumes:
+      - "../site:/var/www/html"
+      - "./conf/nginx.conf:/etc/nginx/conf.d/default.conf"
+
+  fpm:
+    build: ./php
+    links:
+      - db:db
+    volumes:
+      - "../site:/var/www/html"
+      - "./conf/php.ini:/usr/local/etc/php/php.ini"
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+        - "8000:80"
