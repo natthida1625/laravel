@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
 
-/*::get('/product-type', function () {
-    return view('welcome');
-});*/
+Route::get('/welcome', 'PagesController@index');
 
-Route::get('/product-type', 'ProductTypeController@index')
+Route::get('/about', 'PagesController@about');
 
-;
+Route::get('/contact', 'PagesController@contact');
+
+Route::resource('product', 'ProductsController');
+
+Route::resource('category', 'CategoryController');

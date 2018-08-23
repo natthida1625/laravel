@@ -15,28 +15,28 @@ class productsTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             [
-                'category_id' => rand(1,4),
+                'category_id' => 1,
                 'product_name' => 'African Glass Catfish',
                 'product_description' => 'lll' ,
-                'prices' => 100
+                'prices' => 100                
             ],
             [
-                'category_id' => rand(1,4),
+                'category_id' => 2,
                 'product_name' => 'African Lungfish',
                 'product_description' => 'll' ,
-                'prices' => 200
+                'prices' => 200         
             ],
             [
-                'category_id' => rand(1,4),
+                'category_id' => 3,
                 'product_name' => 'Black Bass',
                 'product_description' => 'lll',
-                'prices' => 300
+                'prices' => 300          
             ],
             [
-                'category_id' => rand(1,4),
+                'category_id' => 4,
                 'product_name' => 'Conger Eel',
                 'product_description' => 'lll',
-                'prices' => 400
+                'prices' => 400             
             ]
         ]);
     }
