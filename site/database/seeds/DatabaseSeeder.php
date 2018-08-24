@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             productsTableSeeder::class,
             // categoriesTableSeeder::class,
             shopsTableSeeder::class,
+            contactsTableSeeder::class,
         ]);        
     }
 }

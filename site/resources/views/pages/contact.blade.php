@@ -1,35 +1,48 @@
 @extends('layout.app')
 
-@section('content')    
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Contact Me</h1>
-                <div class="form-area">  
-        <form role="form" method="post" action="#">
-        @csrf
-        <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
-    				<div class="form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-					</div>
-                    <div class="form-group">
-                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
-                    </div>
-            
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
-        </form>
-    </div>
-            </div>
-        </div>
-@endsection        
-   
+@section('content')
+<h1> Contact US </h1>
+<a href="{{ action('ContactController@create')}}">Send Messages</a><br /><br /> 
+<div class="container">
+<br />
+
+    <!-- @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br />
+     @endif
+    <table class="table table-striped">
+    <thead>
+      <tr>        
+        <th>Contact_ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>  
+        <th>Subject</th>             
+        <th>Messages</th>      
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>      
+    @foreach($contacts as $contact)    
+    <tr>
+        <td>{{ $contact->id }}</td>       
+        <td>{{ $contact->name }}</td>        
+        <td>{{ $contact->email }}</td> 
+        <td>{{ $contact->phone }}</td>
+        <td>{{ $contact->subject }}</td>                  
+        <td>{{ $contact->messages }}</td>            
+        <td><a href="{{action('ContactController@edit', $contact->id )}}" class="btn btn-warning">Edit</a></td>
+        <td>
+          <form method="post" action="{{action('ContactController@destroy', $contact->id )}}">
+          @csrf
+            <input name="_method" type="hidden" value="DELETE">
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table> -->
+  </div>
+@endsection

@@ -27,7 +27,24 @@
               <label for="price">Price:</label>
               <input type="text" class="form-control" name="prices" value="{{$product->prices}}">
             </div>
-          </div> 
+          </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+              <lable for="category">Category :</lable>
+                <select name="category_id">
+                @foreach($categories as $category)                
+                  <option 
+                    value="{{ $category->id }}"
+                    @if ($category->id === $product->category_id)
+                        selected
+                    @endif                
+                  >{{ $category->name }}
+                  </option>    
+                @endforeach               
+                </select>
+            </div>
+        </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">

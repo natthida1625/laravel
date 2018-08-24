@@ -17,8 +17,8 @@ Route::get('/welcome', 'PagesController@index');
 
 Route::get('/about', 'PagesController@about');
 
-Route::get('/contact', 'PagesController@contact');
-
 Route::resource('product', 'ProductsController');
 
 Route::resource('category', 'CategoryController');
+
+Route::resource('contact', 'ContactController');
