@@ -14,11 +14,11 @@ class categoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
             [
             'name' => 'Dress',
-            'description' => 'abcde' 
+            'description' => 'abcde'
             ],
             [
             'name' => 'Bird',
-            'description' => 'abcdef'        
+            'description' => 'abcdef'       
             ],
             [
             'name' => 'Cat',
@@ -28,6 +28,6 @@ class categoriesTableSeeder extends Seeder
             'name' => 'Dog',
             'description' => 'abcdefgh'
             ]
-        ]);
+        ]); 
     }
 }

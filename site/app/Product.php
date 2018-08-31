@@ -3,16 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Category;
+
 
 class Product extends Model
 {
-    protected $fillable = ['product_name', 'product_description', 'prices', 'category_id'];    
+    protected $fillable = ['product_name', 'product_description', 'prices', 'file'];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Category');
-    }
+        return $this->belongsToMany('App\Category');    }
 
+    
     public function shops()
     {
         return $this->belongsToMany('App\Shop');

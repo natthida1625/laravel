@@ -22,3 +22,4 @@ Route::resource('product', 'ProductsController');
 Route::resource('category', 'CategoryController');
 
 Route::resource('contact', 'ContactController');
+
